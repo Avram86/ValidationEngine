@@ -8,7 +8,7 @@ namespace ValidationEngine.Library
 {
     public class CNPAStringContainingOnlyNumbers : ValidationRule
     {
-        public CNPAStringContainingOnlyNumbers(Person[] person):base(person)
+        public CNPAStringContainingOnlyNumbers()
         {
         }
 
@@ -32,7 +32,7 @@ namespace ValidationEngine.Library
             return isValid;
         }
 
-        public override List<Person> EvaluateList()
+        public override List<Person> EvaluateList(Person[] person)
         {
             List<Person> result = new List<Person>();
             foreach(Person p in person)

@@ -8,11 +8,11 @@ namespace ValidationEngine.Library
 {
     public class AgeBelow18YearsValidationRule : ValidationRule
     {
-        public AgeBelow18YearsValidationRule(Person[] person):base(person)
+        public AgeBelow18YearsValidationRule()
         {
 
         }
-        public override List<Person> EvaluateList()
+        public override List<Person> EvaluateList(Person[] person)
         {
             List<Person> result = new List<Person>();
             foreach(Person p in person)

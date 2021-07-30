@@ -8,12 +8,12 @@ namespace ValidationEngine.Library
 {
     public class CNPSexValidationRule : ValidationRule
     {
-        public CNPSexValidationRule(Person[] person):base(person)
+        public CNPSexValidationRule()
         {
 
         }
 
-        public override List<Person> EvaluateList()
+        public override List<Person> EvaluateList(Person[] person)
         {
             List<Person> result = new List<Person>();
             foreach(Person p in person)

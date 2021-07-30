@@ -8,15 +8,12 @@ namespace ValidationEngine.Library
 {
     public class PersonListProcessor: SearchEngine
     {
-        public PersonListProcessor(ValidationRule[] rules, Person[] people):base(rules)
+        public PersonListProcessor(Person[] people, ValidationRule[] rules):base(people, rules)
         {
-            People = people ?? new Person[0];
         }
-        public Person[] People { get; set; }
-
         public void PrintOutcomeForValidatiopnRules()
         {
-            SearchEngine engine = new SearchEngine(Rules);
+            SearchEngine engine = new SearchEngine(People ,Rules);
 
             Person[] result = engine.AfterValidation();
 

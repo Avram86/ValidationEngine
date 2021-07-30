@@ -8,10 +8,10 @@ namespace ValidationEngine.Library
 {
     public class NameAndSurnameCannotBenullRule : ValidationRule
     {
-        public NameAndSurnameCannotBenullRule(Person[] person):base(person)
+        public NameAndSurnameCannotBenullRule()
         {
         }
-        public override List<Person> EvaluateList()
+        public override List<Person> EvaluateList(Person[] person)
         {
             List<Person> people = new List<Person>();
 

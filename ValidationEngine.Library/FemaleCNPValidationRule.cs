@@ -8,11 +8,11 @@ namespace ValidationEngine.Library
 {
     public class FemaleCNPValidationRule : ValidationRule
     {
-        public FemaleCNPValidationRule(Person[] person) : base(person)
+        public FemaleCNPValidationRule()
         {
 
         }
-        public override List<Person> EvaluateList()
+        public override List<Person> EvaluateList(Person[] person)
         {
             List<Person> result = new List<Person>();
 

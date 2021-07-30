@@ -8,11 +8,10 @@ namespace ValidationEngine.Library
 {
     public abstract class ValidationRule
     {
-        public ValidationRule(Person[] p)
+        public ValidationRule()
         {
-            person = p;
         }
-        public Person[] person { get; }
-        public abstract List<Person> EvaluateList();
+        public Person[] person { get; set; }
+        public abstract List<Person> EvaluateList(Person[] person);
     }
 }

@@ -39,12 +39,12 @@ namespace ValidationEngine
             //string input = Console.ReadLine();
 
 
-            PersonListProcessor personListProcessor = new PersonListProcessor(null, listOfPeople);
+            PersonListProcessor personListProcessor = new PersonListProcessor(listOfPeople, null);
             personListProcessor.Rules = new ValidationRule[]
             {
-                new NameAndSurnameCannotBenullRule(listOfPeople),
-                new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()),
-                new AgeAbove18YearsValidationRule( new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()).EvaluateList().ToArray())
+                new NameAndSurnameCannotBenullRule(),
+                new CNPAStringContainingOnlyNumbers(),
+                new AgeAbove18YearsValidationRule()
             };
 
             personListProcessor.PrintOutcomeForValidatiopnRules();
@@ -53,10 +53,10 @@ namespace ValidationEngine
 
             personListProcessor.Rules = new ValidationRule[]
            {
-                new NameAndSurnameCannotBenullRule(listOfPeople),
-                new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()),
-                new MaleCNPValidationRule(new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()).EvaluateList().ToArray()),
-                new AgeBelow18YearsValidationRule(new MaleCNPValidationRule(new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()).EvaluateList().ToArray()).EvaluateList().ToArray())
+                new NameAndSurnameCannotBenullRule(),
+                new CNPAStringContainingOnlyNumbers(),
+                new MaleCNPValidationRule(),
+                new AgeBelow18YearsValidationRule()
            };
 
             personListProcessor.PrintOutcomeForValidatiopnRules();
