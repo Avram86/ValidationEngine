@@ -43,8 +43,8 @@ namespace ValidationEngine
             personListProcessor.Rules = new ValidationRule[]
             {
                 new NameAndSurnameCannotBenullRule(listOfPeople),
-                new CNPAStringContainingOnlyNumbers(listOfPeople),
-                new AgeAbove18YearsValidationRule(listOfPeople)
+                new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()),
+                new AgeAbove18YearsValidationRule( new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()).EvaluateList().ToArray())
             };
 
             personListProcessor.PrintOutcomeForValidatiopnRules();
@@ -54,9 +54,9 @@ namespace ValidationEngine
             personListProcessor.Rules = new ValidationRule[]
            {
                 new NameAndSurnameCannotBenullRule(listOfPeople),
-                new CNPAStringContainingOnlyNumbers(listOfPeople),
-                new MaleCNPValidationRule(listOfPeople),
-                new AgeBelow18YearsValidationRule(listOfPeople)
+                new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()),
+                new MaleCNPValidationRule(new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()).EvaluateList().ToArray()),
+                new AgeBelow18YearsValidationRule(new MaleCNPValidationRule(new CNPAStringContainingOnlyNumbers(new NameAndSurnameCannotBenullRule(listOfPeople).EvaluateList().ToArray()).EvaluateList().ToArray()).EvaluateList().ToArray())
            };
 
             personListProcessor.PrintOutcomeForValidatiopnRules();

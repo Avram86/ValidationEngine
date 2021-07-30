@@ -19,13 +19,13 @@ namespace ValidationEngine.Library
 
             foreach(Person p in person)
             {
-                int startsWith = p.CNP[0];
+                char startsWith = p.CNP[0];
                 switch (startsWith)
                 {
-                    case 1:
-                    case 3:
-                    case 5:
-                    case 7:
+                    case '1':
+                    case '3':
+                    case '5':
+                    case '7':
                         result.Add(p);
                         break;
 
